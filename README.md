@@ -4,30 +4,30 @@
 
 ## 📌 Index  
 - [🇺🇸 English](#english)  
-- [🇦🇷 Español](#espa%C3%B1ol)
+- [🇪🇸 Español](#espa%C3%B1ol)
 
 ---
 
-### 📁 Folder Structure / Estructura de las carpetas
-  
-📦 Project Root  
-├─ enviadormails/  
-│   ├─ dist/  
-│   │   ├─ enviador.exe # Executable for sending emails  
-│   │   └─ .env  
-│   └─ enviador.py 
-├─ clasificador/  
-│   ├─ dist/  
-│   │   └─ clasificador.exe # Executable for classifying invoices  
-│   └─ clasificador.py 
-├─ clientes/ # One folder per client  
-│   └─ Client_Name/  
-│       ├─ invoice.pdf  # This will be placed automatically depending on its name
-│       └─ email.txt # Email address of the client  
-├─ facturas_nuevas/ # Where new invoices are added before sorting  
-├─ ClasificarPDFs.bat # Used to have a terminal with the script opened
-├─ EnviarMails.bat # "" idem
-└─ README.md 
+### 📁 Folder Structure | Estructura del Proyecto
+
+| Ruta                         | English                                                | Español                                                |
+|-----------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| `enviadormails/`            | Folder for the mail sender                             | Carpeta del enviador de correos                        |
+| ├── `dist/`                 | Built executables                                      | Ejecutables compilados                                 |
+| │   ├── `enviador.exe`      | Executable for sending emails                          | Ejecutable para enviar correos                         |
+| │   └── `.env`              | [Create this file](#-env-configuration) with your mail credentials | [Crear este archivo](#-env-configuration) con tus credenciales de correo |
+| └── `enviador.py`           | Optional original script                               | Script original opcional                               |
+| `clasificador/`             | Folder for the invoice classifier                      | Carpeta del clasificador de facturas                   |
+| ├── `dist/`                 | Built executables                                      | Ejecutables compilados                                 |
+| │   └── `clasificador.exe`  | Executable for classifying invoices                    | Ejecutable para clasificar facturas                    |
+| └── `clasificador.py`       | Optional original script                               | Script original opcional                               |
+| `clientes/`                 | One folder per client                                  | Una carpeta por cliente                                |
+| └── `Client_Name/`          | Folder for a specific client                           | Carpeta de un cliente específico                       |
+|     ├── `invoice.pdf`       | The invoice PDF                                        | La factura en PDF                                      |
+|     └── `email.txt`         | Email address of the client                            | Dirección de correo del cliente                        |
+| `facturas_nuevas/`          | New invoices before classification                     | Nuevas facturas antes de clasificarlas                 |
+| `README.md`                 | This documentation file                                | Este archivo de documentación                          |
+
 
 ---
 
@@ -38,15 +38,15 @@ It scans client folders, validates email addresses, and ensures no invoice is mi
 
 ### How to Use
 
-1. Place invoice PDFs in the `facturas_nuevas/` folder.  
-2. Run `clasificador.exe` to organize files into client folders.  
-3. Ensure each client folder has a valid `email.txt` file.  
-4. Run `enviador.exe`.  
-5. Confirm when prompted to send the emails.
+0. [Create the `.env` file](#-env-configuration) in `enviadormails/dist/` with your email settings.  
+1. **Delete all** invoices remaining in the `facturas_nuevas/` folder.  
+2. Upload the new invoice PDFs into the `facturas_nuevas/` folder.  
+3. Run `ClasificarPDFs.bat` to automatically classify the new invoices into the correct client folders.  
+4. Run `EnviarMails.bat` to send the emails to clients with their respective invoices.
 
 ### ✅ .env Configuration
 
-A `.env` file must exist in the same folder as `enviador.exe`, with the following content:
+A `.env` file must exist in the `enviadormails/dist/` folder, with the following content:
 
 ```dotenv
 EMAIL_USER=your_email@example.com
@@ -62,22 +62,22 @@ Use `EMAIL_PASS` as your email password or app-specific password.
 
 ---
 
-## 🇦🇷 Español
+## 🇪🇸 Español
 
 **Holistor Invoice Mailer** es un script en Python para enviar automáticamente las facturas generadas por Holistor.  
 Escanea las carpetas de los clientes, valida las direcciones de correo y asegura que ninguna factura quede sin enviar.
 
 ### Cómo usarlo
 
-1. Coloca los archivos PDF en la carpeta `facturas_nuevas/`.  
-2. Ejecuta `clasificador.exe` para organizar los archivos en las carpetas de cada cliente.  
-3. Asegúrate de que cada carpeta de cliente tenga un archivo `email.txt` válido.  
-4. Ejecuta `enviador.exe`.  
-5. Confirma cuando se te solicite para enviar los correos.
+0. [Creá el archivo `.env`](#-configuración-del-archivo-env) en `enviadormails/dist/` con la configuración de correo.  
+1. **Eliminá todas** las facturas que hayan quedado en la carpeta `facturas_nuevas/`.  
+2. Cargá las nuevas facturas PDF en la carpeta `facturas_nuevas/`.  
+3. Ejecutá `ClasificarPDFs.bat` para clasificar automáticamente las facturas en las carpetas correctas.  
+4. Ejecutá `EnviarMails.bat` para enviar los correos con las facturas a cada cliente.
 
 ### ✅ Configuración del archivo .env
 
-Debe existir un archivo `.env` en la misma carpeta que `enviador.exe`, con el siguiente contenido:
+Debe existir un archivo `.env` en la carpeta `enviadormails/dist/`, con el siguiente contenido:
 
 ```dotenv
 EMAIL_USER=tu_correo@example.com
@@ -86,7 +86,7 @@ SMTP_SERVER=smtp.example.com
 SMTP_PORT=465
 ```
 
-Reemplaza `EMAIL_USER` por tu dirección de correo remitente.  
-Usa `EMAIL_PASS` como tu contraseña o clave de aplicación del correo.  
+Reemplazá `EMAIL_USER` por tu dirección de correo remitente.  
+Usá `EMAIL_PASS` como tu contraseña o clave específica de aplicación.  
 `SMTP_SERVER` corresponde al servidor SMTP de tu proveedor (por ejemplo, smtp.gmail.com).  
 `SMTP_PORT` normalmente es 465 para conexiones SSL.
