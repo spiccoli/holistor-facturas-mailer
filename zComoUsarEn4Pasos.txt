@@ -1,0 +1,4 @@
+1- Eliminar TODAS las facturas que hayan quedado en facturas_nuevas.
+2- Cargar las nuevas facturas en facturas_nuevas.
+3- Ejecutar ClasificarPDFs.bat
+4- Ejecutar EnviarMails.bat
