@@ -8,16 +8,26 @@
 
 ---
 
-### 📁 Folder Structure
-
+### 📁 Folder Structure / Estructura de las carpetas
+  
 📦 Project Root  
-├─ enviador.exe # Executable generated from the Python script  
-├─ .env # Configuration file (see below)  
-├─ clientes/ # Folder with subfolders per client  
-│ └─ Client_Name/  
-│   ├─ invoice.pdf  
-│   └─ email.txt # Client's email address  
-└─ facturas_nuevas/ # New PDFs to classify  
+├─ enviadormails/  
+│   ├─ dist/  
+│   │   ├─ enviador.exe # Executable for sending emails  
+│   │   └─ .env  
+│   └─ enviador.py 
+├─ clasificador/  
+│   ├─ dist/  
+│   │   └─ clasificador.exe # Executable for classifying invoices  
+│   └─ clasificador.py 
+├─ clientes/ # One folder per client  
+│   └─ Client_Name/  
+│       ├─ invoice.pdf  # This will be placed automatically depending on its name
+│       └─ email.txt # Email address of the client  
+├─ facturas_nuevas/ # Where new invoices are added before sorting  
+├─ ClasificarPDFs.bat # Used to have a terminal with the script opened
+├─ EnviarMails.bat # "" idem
+└─ README.md 
 
 ---
 
